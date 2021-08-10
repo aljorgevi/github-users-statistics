@@ -1,6 +1,4 @@
-# Github users statistics  🍲
-
-## Website for fans of food!!
+# Github users statistics
 
 Hi there! 👋  This is the repo for a Github users statistics website. A fully responsive React application using Auth0 for authentication and fusioncharts for the Charts. The site is hosted on Netlify.
 
