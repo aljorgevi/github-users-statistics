@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { GithubProvider } from './context/context';
+import { AuthProvider } from './context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <GithubProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </GithubProvider>
   </React.StrictMode>,
   document.getElementById('root')
