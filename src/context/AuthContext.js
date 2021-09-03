@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
-    return auth.signOut;
+    return auth.signOut();
   }
 
   function resetPassword(email) {
@@ -36,8 +36,6 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    console.log('useEffect');
-    console.log(firebaseApp);
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
