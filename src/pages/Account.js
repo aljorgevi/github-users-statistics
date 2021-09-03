@@ -2,20 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 // COMPONENTS
 import LoginModal from '../components/LoginModal';
-// ANIMATION
-// import { motion } from 'framer-motion';
-// import { pageAnimation } from '../Animations/animation';
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../utils/Animations';
 
 export function Account() {
   return (
-    <Wrapper>
+    <Wrapper
+      exit='exit'
+      variants={pageAnimation}
+      initial='hidden'
+      animate='show'
+    >
       <LoginModal />
     </Wrapper>
   );
 }
 export default Account;
 
-const Wrapper = styled.section`
+const Wrapper = styled(motion.section)`
   position: relative;
     padding: 1rem;
     display: flex;
@@ -82,6 +86,10 @@ const Wrapper = styled.section`
     }
 }
 
+.signup__button {
+    cursor: pointer;
+}
+
 .form__container {
     display: flex;
     justify-content: space-between;
@@ -96,13 +104,3 @@ const Wrapper = styled.section`
         }
 
 `;
-
-/*
-   <motion.div
-      className="account__wrapper"
-      exit="exit"
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-    >
-*/
