@@ -1,7 +1,10 @@
-import React from 'react';
-import { Dashboard, Error, Account } from './pages';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar } from './components';
+import React from 'react'
+import { Dashboard, Error, Account } from './pages'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Navbar } from './components'
+
+// TODO: add protected routes to login if is login .. add a isLoggedIn in context.
+// TODO: I added firebase, check that.
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
         <Route path='*' component={Error} />
       </Switch>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
