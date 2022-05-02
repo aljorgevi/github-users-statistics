@@ -1,29 +1,30 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useRef, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 // Context
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext'
 
 const LoginModal = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login } = useAuth();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const { login } = useAuth()
+  const [error, setError] = useState('')
+  // eslint-disable-next-line no-unused-vars
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
-      setError('');
-      setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      history.push('/');
+      setError('')
+      setLoading(true)
+      await login(emailRef.current.value, passwordRef.current.value)
+      history.push('/')
     } catch {
-      setError('Failed to log in');
+      setError('Failed to log in')
     }
 
-    setLoading(false);
+    setLoading(false)
   }
 
   return (
@@ -53,7 +54,7 @@ const LoginModal = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default LoginModal;
+export default LoginModal
