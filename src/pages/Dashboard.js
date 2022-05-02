@@ -17,13 +17,7 @@ const Dashboard = () => {
       animate='show'
     >
       <Search />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <DashboardWrapper />
-        </>
-      )}
+      {isLoading ? <Loader /> : <DashboardWrapper />}
     </motion.main>
   );
 };
