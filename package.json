@@ -25,12 +25,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json",
-      "prettier"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -42,9 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint-config-prettier": "^8.5.0",
-    "standard": "^17.0.0"
   }
 }
