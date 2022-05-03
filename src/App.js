@@ -6,6 +6,7 @@ import { Navbar } from './components'
 // TODO: add protected routes to login if is login .. add a isLoggedIn in context.
 // TODO: I added firebase, check that.
 // TODO: contex api
+// add mock data
 
 function App() {
   return (
