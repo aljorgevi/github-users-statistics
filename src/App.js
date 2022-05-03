@@ -7,6 +7,7 @@ import { Navbar } from './components'
 // TODO: I added firebase, check that.
 // TODO: contex api
 // add mock data
+//  add info component
 
 function App() {
   return (
