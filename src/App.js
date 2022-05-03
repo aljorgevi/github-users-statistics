@@ -1,7 +1,8 @@
 import React from 'react'
 import { Dashboard, Error, Account } from './pages'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components'
+import PrivateRoute from './pages/PrivateRoute'
 
 // TODO: add protected routes to login if is login .. add a isLoggedIn in context.
 // TODO: I added firebase, check that.
@@ -13,14 +14,22 @@ import { Navbar } from './components'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
-      <Switch>
-        <Route exact path='/' component={Dashboard} />
-        <Route path='/login' component={Account} />
-        <Route path='*' component={Error} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route
+          exact
+          path='/'
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route path='/login' element={<Account />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

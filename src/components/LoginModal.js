@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // Context
 import { useAuth } from '../context/AuthContext'
 
@@ -8,9 +8,8 @@ const LoginModal = () => {
   const passwordRef = useRef()
   const { login } = useAuth()
   const [error, setError] = useState('')
-  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const history = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -19,8 +18,9 @@ const LoginModal = () => {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push('/')
-    } catch {
+      history('/')
+    } catch (err) {
+      console.error(err)
       setError('Failed to log in')
     }
 
@@ -33,7 +33,7 @@ const LoginModal = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
-          value='demouser@demo.com'
+          defaultValue='demouser@demo.com'
           ref={emailRef}
           placeholder='Enter your Email'
           type='email'
@@ -41,7 +41,7 @@ const LoginModal = () => {
         <input
           ref={passwordRef}
           placeholder='Enter your password'
-          value='demoPassword'
+          defaultValue='demoPassword'
           type='password'
         />
         <div className='form__container'>

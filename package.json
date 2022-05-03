@@ -15,18 +15,21 @@
     "react-dom": "^16.13.1",
     "react-fusioncharts": "^3.1.2",
     "react-icons": "^3.10.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "./node_modules/standard/eslintrc.json",
+      "prettier"
+    ]
   },
   "browserslist": {
     "production": [
@@ -39,5 +42,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "standard": "^17.0.0"
   }
 }

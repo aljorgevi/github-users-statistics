@@ -1,11 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import { Navigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import styled from 'styled-components'
 // COMPONENTS
-import LoginModal from '../components/LoginModal';
-import { motion } from 'framer-motion';
-import { pageAnimation } from '../utils/Animations';
+import LoginModal from '../components/LoginModal'
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../utils/Animations'
 
 export function Account() {
+  const { currentUser } = useAuth()
+  console.log({ currentUser })
+
+  if (currentUser) {
+    return <Navigate to='/' />
+  }
+
   return (
     <Wrapper
       exit='exit'
@@ -15,9 +24,9 @@ export function Account() {
     >
       <LoginModal />
     </Wrapper>
-  );
+  )
 }
-export default Account;
+export default Account
 
 const Wrapper = styled(motion.section)`
   position: relative;
@@ -103,4 +112,4 @@ const Wrapper = styled(motion.section)`
             width: 100%;
         }
 
-`;
+`
