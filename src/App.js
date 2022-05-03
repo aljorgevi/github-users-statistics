@@ -9,6 +9,7 @@ import { Navbar } from './components'
 // add mock data
 //  add info component
 // add card component
+// add followers
 
 function App() {
   return (
