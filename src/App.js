@@ -8,6 +8,7 @@ import { Navbar } from './components'
 // TODO: contex api
 // add mock data
 //  add info component
+// add card component
 
 function App() {
   return (
